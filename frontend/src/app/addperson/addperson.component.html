@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card-content-black-text">
+      <div class="card-content black-text">
+        <div class="row">
+          <div class="col s5">
+            <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="personService.selectedPerson._id">
+              <div class="row">
+                <br/>
+              <b>  Create a new user </b>
+                <div class="input-field col s12">
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="personService.selectedPerson.name" placeholder="Enter the Name" >
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="job_desc" #name="ngModel" [(ngModel)]="personService.selectedPerson.job_desc" placeholder="Enter the Job Description"  >
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                <button class="btn btn-custom center" type="submit" >Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7"><br/>
+            <b> Available Users </b><br/><br/>
+              <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Job desc</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let per of personService.persons">
+                    <td>{{per.name}}</td>
+                    <td>{{per.job_desc}}</td>
+
+                    <td>
+                        <a class="action-btn" (click)="onEdit(per)">
+                          Update
+                        </a>
+                        <a class="action-btn" (click)="onDelete(per._id,personForm)">
+                          Delete
+                        </a>
+                      </td>
+                  </tr>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
