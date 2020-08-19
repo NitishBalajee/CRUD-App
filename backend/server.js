@@ -11,7 +11,7 @@ var port=3000;
 app.use(cors({origin: 'http://localhost:4200'}));
 require('./app.js')(app);
 
-console.log("something")
+
 app.listen(port,function(){
   console.log("Listening on port "+ port)
 });
