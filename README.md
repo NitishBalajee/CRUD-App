@@ -1,3 +1,4 @@
+BYE
 # CRUD-App
 
 A simple application which performs Create, update, read and delete operations on a person database with NodeJS as a back end and angular as frontend.
